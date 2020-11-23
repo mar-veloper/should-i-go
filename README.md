@@ -1,1 +1,1 @@
-# should-i-go
+# Should I Go App
