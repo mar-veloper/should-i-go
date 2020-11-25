@@ -1,7 +1,15 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import { SWRConfig } from 'swr';
+import Axios from 'axios';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <SWRConfig
+      value={{ fetcher: (...args) => Axios(...args).then(res => res.data) }}
+    >
+      <Component {...pageProps} />
+    </SWRConfig>
+  );
 }
 
-export default MyApp
+export default MyApp;
