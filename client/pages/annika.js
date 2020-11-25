@@ -1,4 +1,3 @@
-import styles from '../styles/test.scss';
 import Input from '../components/common/Input';
 
 export default function Annika() {
