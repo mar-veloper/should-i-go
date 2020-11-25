@@ -7,7 +7,7 @@ console.log();
 export default async (req, res) => {
   const { input } = req.query;
   try {
-    const autocomplete = await googlePlace.nearbySearch({
+    const autocomplete = await googlePlace.autocomplete({
       input,
     });
     return res.status(200).json(autocomplete);
