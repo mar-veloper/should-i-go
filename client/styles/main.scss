@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "HK Grotesk Bold";
+  src: url("../public/fonts/HKGrotesk-Bold.otf");
+}
+
+@font-face {
+  font-family: "HK Grotesk Semibold";
+  src: url("../public/fonts/HKGrotesk-Semibold.otf");
+}
+
+$primary-color: #B2EDB3;
+
+body {
+  font-family: 'HK Grotesk Semibold';
+  background: #eee;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 50px;
+  letter-spacing: 1px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-family: 'HK Grotesk Bold';
+  margin: 0.3rem;
+}
+
+.selected {
+  background: $primary-color;
+  border: 1px solid $primary-color;
+}
+
+.search-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-nav-copy {
+  margin-right: 1rem;
+}
+
+.map-placeholder {
+  background: red;
+  height: 345px;
+}
+
+.hero-content,
+.data-live {
+  padding: 0 2rem;
+}
+
+.question {
+  font-size: 2rem;
+}
+
+.data-live,
+.data-day {
+  text-align: center;
+}
+
+.data-live-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
