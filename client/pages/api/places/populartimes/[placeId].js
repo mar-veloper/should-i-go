@@ -7,8 +7,6 @@ export default async (req, res) => {
     const data = await populartimes.fullWeek(placeId);
     const days = {};
     data.popularTimes.forEach(item => days[item.day] = item.data );
-
-    console.log({days});
     
     return res
       .status(200)

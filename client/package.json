@@ -11,6 +11,7 @@
     "@christophern/populartimesjs": "^1.0.6",
     "@reach/combobox": "^0.11.2",
     "axios": "^0.21.0",
+    "google-map-react": "^2.1.9",
     "google-place-provider": "^1.3.4",
     "lodash": "^4.17.20",
     "next": "10.0.3",

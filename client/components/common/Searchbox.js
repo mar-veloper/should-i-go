@@ -4,10 +4,10 @@ import {
   ComboboxPopover,
   ComboboxList,
   ComboboxOption,
-} from "@reach/combobox";
-import Link from 'next/link'
- 
-import "@reach/combobox/styles.css";
+} from '@reach/combobox';
+import Link from 'next/link';
+
+import '@reach/combobox/styles.css';
 
 const Searchbox = ({ data, value, onChange }) => {
   return (
