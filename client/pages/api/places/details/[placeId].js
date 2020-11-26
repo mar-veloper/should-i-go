@@ -3,12 +3,12 @@ const { GOOGLE_API_KEY } = process.env;
 const googlePlace = new GooglePlaceProvider(GOOGLE_API_KEY);
 
 export default async (req, res) => {
-  const { input } = req.query;
+  const { placeId } = req.query;
   try {
-    const autocomplete = await googlePlace.autocomplete({
-      input,
+    const placeDetails = await googlePlace.placeDetails({
+      place_id: placeId,
     });
-    return res.status(200).json(autocomplete);
+    return res.status(200).json(placeDetails);
   } catch (error) {
     res.json({ message: error.message });
   }

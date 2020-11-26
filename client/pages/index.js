@@ -10,8 +10,8 @@ const { GOOGLE_API_KEY } = process.env;
 
 export default function Home() {
   const [value, setValue] = useState('');
-	const [paramEndpoint, setParamEndpoint] = useState(''); 
-	const [place, setPlace] = useState(''); 
+  const [paramEndpoint, setParamEndpoint] = useState(''); 
+  
   const endpoint = paramEndpoint ? `/api/places/autocomplete/${paramEndpoint}` : null;
 	const debouncedSave = useRef(debounce(nextValue => setParamEndpoint(nextValue), 1000))
     .current;
@@ -21,12 +21,8 @@ export default function Home() {
 	const handleOnChange = event => {
 		const { value: nextValue } = event.target;
     setValue(nextValue);
-    
 		debouncedSave(nextValue);
   };
-
-  console.log(data);
-  console.log({paramEndpoint, value});
   
   
   return (
@@ -39,7 +35,7 @@ export default function Home() {
       <main className={styles.main}>
         <form>
           <Searchbox data={data?.predictions} value={value} onChange={handleOnChange} />
-          <h1>{place}</h1>
+          <h1>HELLO :DDDDDDDDDDD this is main page</h1>
         </form>
       </main>
     </div>
