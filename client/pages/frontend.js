@@ -1,7 +1,7 @@
 import Input from '../components/common/Input';
 import Button from '../components/common/Button';
 
-export default function Map() {
+export default function Frontend() {
   return (
     <div>
       <nav className="search-nav">
