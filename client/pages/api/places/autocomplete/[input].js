@@ -7,6 +7,8 @@ export default async (req, res) => {
   try {
     const autocomplete = await googlePlace.autocomplete({
       input,
+      location: '60.6226580961889,16.77756996098595', //Sandviken, Sweden
+      radius: '300', //Kilometres
     });
     return res.status(200).json(autocomplete);
   } catch (error) {
