@@ -1,9 +1,8 @@
-import { useRouter } from "next/router";
 import useSWR from "swr";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
+import { useRouter } from "next/router";
 import Map from "../../components/Map/";
-
 const { GOOGLE_API_KEY } = process.env;
 
 export default function PlaceContainer({ googleApiKey }) {
@@ -41,15 +40,7 @@ export default function PlaceContainer({ googleApiKey }) {
       <section className="data-live">
         <h4 className="data-title">How crowded is it now?</h4>
         <div className="data-live-visual">
-          {
-            <p className="data-live-value">
-              {!densityData
-                ? "Loading ..."
-                : densityData?.now
-                ? `${densityData?.now}%`
-                : "No data provided."}
-            </p>
-          }
+          <p className="data-live-value">{densityData?.now}%</p>
           <div className="circle"></div>
         </div>
         <Button label="Live" className="selected" />

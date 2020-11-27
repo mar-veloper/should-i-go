@@ -17,8 +17,8 @@ const Searchbox = ({ data, value, onChange }) => {
         <ComboboxList>
           {data &&
             data.map(({ place_id, description }) => (
-              <Link href={`/place/${place_id}`}>
-                <ComboboxOption key={place_id} value={description} />
+              <Link key={place_id} href={`/place/${place_id}`}>
+                <ComboboxOption value={description} />
               </Link>
             ))}
         </ComboboxList>

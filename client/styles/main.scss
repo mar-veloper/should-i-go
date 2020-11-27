@@ -8,10 +8,10 @@
   src: url("../public/fonts/HKGrotesk-Semibold.otf");
 }
 
-$primary-color: #B2EDB3;
+$primary-color: #b2edb3;
 
 body {
-  font-family: 'HK Grotesk Semibold';
+  font-family: "HK Grotesk Semibold";
   background: #eee;
 }
 
@@ -21,7 +21,7 @@ button {
   letter-spacing: 1px;
   border: 1px solid black;
   text-transform: uppercase;
-  font-family: 'HK Grotesk Bold';
+  font-family: "HK Grotesk Bold";
   margin: 0.3rem;
 }
 
@@ -42,7 +42,7 @@ button {
 }
 
 .map-placeholder {
-  background: red;
+  background: #eee;
   height: 345px;
 }
 
