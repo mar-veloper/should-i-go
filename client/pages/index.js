@@ -1,33 +1,31 @@
-import Head from 'next/head';
-import { useRef, useState } from 'react';
-import { debounce } from 'lodash';
-import useSWR from 'swr';
-import Searchbox from '../components/common/Searchbox';
+import Head from "next/head";
+import { useRef, useState } from "react";
+import { debounce } from "lodash";
+import useSWR from "swr";
+import Searchbox from "../components/common/Searchbox";
 
-import styles from '../styles/Home.module.css';
+import styles from "../styles/Home.module.css";
 
 const { GOOGLE_API_KEY } = process.env;
 
 export default function Home() {
-  const [value, setValue] = useState('');
-  const [paramEndpoint, setParamEndpoint] = useState('');
+  const [value, setValue] = useState("");
+  const [paramEndpoint, setParamEndpoint] = useState("");
 
   const debouncedSave = useRef(
-    debounce(nextValue => setParamEndpoint(nextValue), 1000)
+    debounce((nextValue) => setParamEndpoint(nextValue), 1000)
   ).current;
 
-  const endpoint = paramEndpoint
-    ? `/api/places/autocomplete/${paramEndpoint}`
-    : null;
+  const endpoint = paramEndpoint && `/api/places/autocomplete/${paramEndpoint}`;
   const { data } = useSWR(endpoint);
 
-  const handleOnChange = event => {
+  const handleOnChange = (event) => {
     const { value: nextValue } = event.target;
     setValue(nextValue);
     debouncedSave(nextValue);
   };
 
-  console.log({ paramEndpoint });
+  console.dir(data);
 
   return (
     <div className={styles.container}>

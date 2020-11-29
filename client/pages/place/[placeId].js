@@ -18,7 +18,7 @@ export default function PlaceContainer({ googleApiKey }) {
     lng: detailsData?.result.geometry.location.lng,
   };
 
-  console.log(detailsData);
+  console.log(densityData);
 
   return (
     <div>
