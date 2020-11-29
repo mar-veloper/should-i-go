@@ -18,6 +18,8 @@ export default function PlaceContainer({ googleApiKey }) {
     lng: detailsData?.result.geometry.location.lng,
   };
 
+  console.log(detailsData);
+
   return (
     <div>
       <nav className="search-nav">
