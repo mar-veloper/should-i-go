@@ -15,8 +15,6 @@ function SearchContainer ({ coords, isGeolocationAvailable, isGeolocationEnabled
   
   return (
     <div>
-      {isGeolocationAvailable ? 'true' : 'false'}
-      {isGeolocationEnabled ? 'true' : 'false'}
       <h1>Results for: {search}</h1>
       <ul>
         {!data
