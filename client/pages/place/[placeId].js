@@ -62,6 +62,7 @@ export default function PlaceContainer({ googleApiKey }) {
 
       <section className="data-day">
         <h4 className="data-title">Day overview</h4>
+        <canvas id="day-overview-chart"></canvas>
       </section>
     </div>
   );
