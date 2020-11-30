@@ -12,7 +12,9 @@ export default function ThemeProvider({ children }) {
 
   useEffect(() => {
     setThemeClass(darkMode.value ? "dark-mode" : "light-mode");
-    setLabel(darkMode.value ? "☀" : "☾");
+    setLabel(
+      darkMode.value ? <i class="fas fa-sun" /> : <i class="fas fa-moon" />
+    );
     setMapTheme(darkMode.value ? googleMapDark : googleMapLight);
   }, [darkMode.value]);
 

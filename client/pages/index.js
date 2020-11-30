@@ -7,8 +7,6 @@ import useSWR from "swr";
 // Components
 import Head from "next/head";
 import Searchbox from "../components/common/Searchbox";
-// Styles
-import styles from "../styles/Home.module.css";
 
 function Home({ coords }) {
   const [value, setValue] = useState("");
@@ -33,13 +31,13 @@ function Home({ coords }) {
   console.dir();
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Should I Go</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
         <form>
           <Searchbox
             data={data?.predictions}
