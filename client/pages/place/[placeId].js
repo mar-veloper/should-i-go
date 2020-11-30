@@ -4,6 +4,8 @@ import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
 
+import milestone from '../../services/milestone';
+
 const { GOOGLE_API_KEY } = process.env;
 
 export default function PlaceContainer({ googleApiKey }) {
@@ -36,7 +38,7 @@ export default function PlaceContainer({ googleApiKey }) {
       </section>
       <section className="hero-content">
         <h3 className="question">
-          Yay, you're good to go to {detailsData?.result.name}!
+          {milestone(densityData?.now, detailsData?.result.name)}
         </h3>
       </section>
 
