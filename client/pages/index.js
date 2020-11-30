@@ -30,7 +30,7 @@ function Home({ coords }) {
     debouncedSave(nextValue);
   };
 
-  console.dir(data);
+  console.dir();
 
   return (
     <div className={styles.container}>
