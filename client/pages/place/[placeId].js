@@ -3,6 +3,8 @@ import useSWR from "swr";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
+import Chart from 'chart.js';
+import {Line} from 'react-chartjs-2';
 
 import milestone from '../../services/milestone';
 
@@ -19,6 +21,22 @@ export default function PlaceContainer({ googleApiKey }) {
     lat: detailsData?.result.geometry.location.lat,
     lng: detailsData?.result.geometry.location.lng,
   };
+
+  const labels = [...Array(25).keys()].map(i => i.toString());
+
+  const state = {
+    labels: labels,
+    datasets: [
+      {
+        fill: false,
+        lineTension: 0.5,
+        backgroundColor: 'rgba(75,192,192,1)',
+        borderColor: 'rgba(0,0,0,1)',
+        borderWidth: 2,
+        data: densityData?.monday
+      }
+    ]
+  }
 
   console.log(densityData);
 
@@ -62,7 +80,9 @@ export default function PlaceContainer({ googleApiKey }) {
 
       <section className="data-day">
         <h4 className="data-title">Day overview</h4>
-        <canvas id="day-overview-chart"></canvas>
+        <Line
+          data={state}
+        />
       </section>
     </div>
   );
