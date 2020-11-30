@@ -1,14 +1,16 @@
-import Head from "next/head";
+// Dependencies
 import { useRef, useState } from "react";
 import { debounce } from "lodash";
+import { geolocated } from "react-geolocated";
 import useSWR from "swr";
-import Searchbox from "../components/common/Searchbox";
 
+// Components
+import Head from "next/head";
+import Searchbox from "../components/common/Searchbox";
+// Styles
 import styles from "../styles/Home.module.css";
 
-const { GOOGLE_API_KEY } = process.env;
-
-export default function Home() {
+function Home({ coords }) {
   const [value, setValue] = useState("");
   const [paramEndpoint, setParamEndpoint] = useState("");
 
@@ -16,7 +18,10 @@ export default function Home() {
     debounce((nextValue) => setParamEndpoint(nextValue), 1000)
   ).current;
 
-  const endpoint = paramEndpoint && `/api/places/autocomplete/${paramEndpoint}`;
+  const location = `${coords?.latitude},${coords?.longitude}`;
+  const endpoint =
+    paramEndpoint &&
+    `/api/places/autocomplete/${paramEndpoint}?location=${location}`;
   const { data } = useSWR(endpoint);
 
   const handleOnChange = (event) => {
@@ -47,3 +52,10 @@ export default function Home() {
     </div>
   );
 }
+
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: true,
+  },
+  userDecisionTimeout: 5000,
+})(Home);

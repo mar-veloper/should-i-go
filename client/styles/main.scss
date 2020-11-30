@@ -1,17 +1,14 @@
-@font-face {
-  font-family: "HK Grotesk Bold";
-  src: url("/fonts/HKGrotesk-Bold.otf");
-}
-
-@font-face {
-  font-family: "HK Grotesk Semibold";
-  src: url("/fonts/HKGrotesk-Semibold.otf");
-}
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/hk-grotesk.min.css");
 
 $primary-color: #b2edb3;
 
+@mixin font($weight) {
+  font-family: "HK Grotesk", sans-serif;
+  font-weight: $weight;
+}
+
 body {
-  font-family: "HK Grotesk Semibold";
+  @include font(600);
   background: #eee;
 }
 
