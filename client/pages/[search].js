@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import { geolocated } from "react-geolocated";
+import MoonLoader from "react-spinners/MoonLoader";
 import useSWR from "swr";
 import Link from 'next/link';
+
 
 function SearchContainer ({ coords, isGeolocationAvailable, isGeolocationEnabled }) {
   const router = useRouter();
@@ -15,11 +17,14 @@ function SearchContainer ({ coords, isGeolocationAvailable, isGeolocationEnabled
   
   return (
     <div>
+      {!data ?
+        <div className="loading">
+          <MoonLoader size={150} color={"#eeeeee"} />
+        </div>
+      : null }
       <h1>Results for: {search}</h1>
       <ul>
-        {!data
-          ? 'Loading ...'
-          : data?.results.length > 0
+        {data?.results.length > 0
           ? data?.results.map(
               item => <Link href={`/place/${item.place_id}`} key={item.place_id}><li>{item.name}</li></Link>
             )

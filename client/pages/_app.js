@@ -1,5 +1,5 @@
-// import '../styles/globals.css';
 import "../styles/main.scss";
+import '../styles/loading.scss'
 import { SWRConfig } from "swr";
 import Axios from "axios";
 import ThemeProvider from "../theme/index";
