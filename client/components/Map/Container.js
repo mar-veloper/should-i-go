@@ -1,13 +1,16 @@
 import GoogleMap from "google-map-react";
-import googleMapStyle from "./google.style.json";
+import { useContext } from "react";
+import ThemeContext from "../../theme/Context";
 import Map from "./index";
 
 const MapContainer = ({ coords, label, googleApiKey }) => {
+  const { mapTheme } = useContext(ThemeContext);
+
   const mapOption = {
     zoomControl: false,
     mapTypeControl: false,
     fullscreenControl: false,
-    styles: googleMapStyle,
+    styles: mapTheme,
   };
   const center = { lat: 59.95, lng: 30.33 };
 

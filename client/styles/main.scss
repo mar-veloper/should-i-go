@@ -9,7 +9,16 @@ $primary-color: #b2edb3;
 
 body {
   @include font(600);
-  background: #eee;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+.dark-mode {
+  background-color: #1f1f2e;
+  color: #fbfbfb;
 }
 
 button {

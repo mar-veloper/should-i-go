@@ -19,6 +19,7 @@
     "react-dom": "17.0.1",
     "react-geolocated": "^3.1.0",
     "sass": "^1.29.0",
-    "swr": "^0.3.9"
+    "swr": "^0.3.9",
+    "use-dark-mode": "^2.3.1"
   }
 }
