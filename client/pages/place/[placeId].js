@@ -149,11 +149,11 @@ export default function PlaceContainer({ googleApiKey }) {
         <ul className="day-statistics-copy">
           <li className="day-statistics-element">
             <span>Best Time to Go:</span>
-            <p>Go at 7pm.</p>
+            <p>Go at {densityData?.bestHour?.hour}:00, the visitation density will be {densityData?.bestHour.population}%</p>
           </li>
           <li className="day-statistics-element">
-            <span>Busiest hour:</span>
-            <p>It will be busy at 2pm.</p>
+            <span>Busiest Time:</span>
+            <p>It will be busy at {densityData?.busiestHour?.hour}:00.</p>
           </li>
         </ul>
       </section>
