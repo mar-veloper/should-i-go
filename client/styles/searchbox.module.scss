@@ -8,8 +8,18 @@
     font-size: 1rem;
     border-radius: none;
   }
+}
 
-  li {
-    z-index: 100;
+.popover {
+  z-index: 10;
+  background: transparent;
+  [data-reach-combobox-option][aria-selected="true"] {
+    background: rgba(234, 245, 255, 0.657);
+    color: #333;
   }
+}
+
+.list {
+  border-bottom: 1pt solid;
+  padding: 0.5rem 1rem;
 }

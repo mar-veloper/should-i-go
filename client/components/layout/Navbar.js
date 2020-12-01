@@ -5,9 +5,9 @@ import { useContext } from "react";
 import ThemeContext from "../../theme/Context";
 
 export default function Navbar() {
-  const { invertedThemeClass } = useContext(ThemeContext);
+  const { themeClass } = useContext(ThemeContext);
   return (
-    <div className={`${style.navbar} ${invertedThemeClass}`}>
+    <div className={`${style.navbar} ${themeClass}`}>
       <ul>
         <li>
           <Link href="/about">About</Link>
