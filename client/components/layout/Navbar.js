@@ -21,7 +21,7 @@ export default function Navbar() {
         <li>
           <ActiveLink href="/about">
             <div className={style.icon}>
-              <i class="far fa-question-circle"></i>
+              <i className="far fa-question-circle"></i>
               <p>About</p>
             </div>
           </ActiveLink>
