@@ -8,36 +8,25 @@ export default async (req, res) => {
     const days = {};
     const today = data.popularTimes.find(item => item.isToday)?.data;
     data.popularTimes.forEach(item => days[item.day] = item.data );
-    
 
-    const busyTime = today
-    .map((item, index) => ({hour: index, population: item}))
-    .filter(item => item.population >= 60);
-  
-    console.log(busyTime);
+    const sortedTimes = today
+      .map((item, index) => ({hour: index, population: item}))
+      .sort((a, b) => b.population - a.population);
+
+    const bestTime = sortedTimes
+      .filter(item => item.population)
+      .sort((a, b) => a.population - b.population);
 
     return res
       .status(200)
       .json({
         now: data.currentPopularity,
         ...days,
-        today
+        today,
+        busiestHour: sortedTimes[0],
+        bestHour: bestTime[0],
       });
   } catch (error) {
     res.json({ message: error.message });
   }
 };
-
-// [
-//   {
-//     hour: ,
-//     population: ,
-//   },
-// ]
-
-
-// {
-//   ...
-//   besttime:,
-
-// }
