@@ -7,8 +7,6 @@ import useSWR from "swr";
 // Components
 import Head from "next/head";
 import Searchbox from "../components/common/Searchbox";
-// Styles
-import styles from "../styles/Home.module.css";
 
 function Home({ coords }) {
   const [value, setValue] = useState("");

@@ -3,8 +3,8 @@ import useSWR from "swr";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
-// import Chart from 'chart.js';
-import {Line} from 'react-chartjs-2';
+import { useState } from 'react';
+import { Line } from 'react-chartjs-2';
 import { defaults } from 'react-chartjs-2';
 
 import milestone from '../../services/milestone';
@@ -22,6 +22,8 @@ export default function PlaceContainer({ googleApiKey }) {
     lat: detailsData?.result.geometry.location.lat,
     lng: detailsData?.result.geometry.location.lng,
   };
+
+  // Daily Overview Graph
 
   defaults.global.defaultFontFamily = 'Hk Grotesk';
   defaults.global.defaultFontColor = '#212234';
@@ -42,8 +44,6 @@ export default function PlaceContainer({ googleApiKey }) {
       }
     ]
   }
-
-
 
   const options = {
     legend: { display: false },
@@ -68,8 +68,7 @@ export default function PlaceContainer({ googleApiKey }) {
           ticks: {
             beginAtZero: true,
             autoSkip: true,
-            maxTicksLimit: 5,
-            stacked: true
+            maxTicksLimit: 5
           }
         },
       ],
