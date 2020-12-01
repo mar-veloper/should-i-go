@@ -30,27 +30,19 @@ export default function PlaceContainer({ googleApiKey }) {
   //           ? `${densityData?.now}%`
   //           : "No data provided."
 
-  const [ circleVal, setCircleVal ] = useState(0);
-  console.log(circleVal);
 
-  const testVal = '55%';
+  const [isLive, setIsLive] = useState(true);
+  const circleValue = isLive ? densityData?.now : "55";
 
-  const averageVal = (e) => {
-    e.preventDefault();
-    setCircleVal(testVal);
-  }
 
-  const liveVal = (e) => {
-    e.preventDefault();
-    setCircleVal(densityData?.now + '%');
-  }
+  // const testVal = '55%';
+  // const live = densityData?.now + '%';
 
-  useEffect(() => {
-    setCircleVal(densityData?.now + '%');
-  }, [])
+  const onLiveValue = () => setIsLive(true);
+  const onAverageValue = () => setIsLive(false);
 
-  const animateCircle = () => {
-    
+  const circleLevel = {
+    transform: `translateY(${100-Number(circleValue)}%)`,
   }
 
   // Daily Overview Graph
@@ -112,7 +104,6 @@ export default function PlaceContainer({ googleApiKey }) {
         <Input />
       </nav>
 
-      
       <section className="map-placeholder">
         <Map.Container
           coords={coords}
@@ -132,15 +123,16 @@ export default function PlaceContainer({ googleApiKey }) {
       <section className="data-live">
         <h4 className="data-title">How crowded is it now?</h4>
         <div className="data-live-visual">
-        <p className="data-live-value">{circleVal}
+        <p className="data-live-value">
+          {circleValue}%
         </p>
           
           <div className="circle">
-            <div className="level"></div>
+            <div className="level" style={circleLevel}></div>
           </div>
         </div>
-        <Button label="Live" className="selected" onClick={(e) => liveVal(e)}/>
-        <Button label="Average" onClick={(e) => averageVal(e)}/>
+        <Button label="Live" className="selected" onClick={onLiveValue}/>
+        <Button label="Average" onClick={onAverageValue}/>
       </section>
 
       <section className="data-day">

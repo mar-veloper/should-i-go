@@ -96,6 +96,7 @@ button {
   width: 100vw;
   height: 30vw;
   transform: translateY(-93%);
+  pointer-events: none;
 }
 
 .hero-content,
@@ -129,6 +130,7 @@ button {
 
 .data-live-value {
   position: absolute;
+  z-index: 9;
   @include font(700, 1.5rem);
 }
 
@@ -144,7 +146,7 @@ button {
   width: 100%;
   bottom: 0;
   height: 100%;
-  transform: translateY(69%);
+  transform: translateY(100%);
   background: #b2edb3;
 }
 
