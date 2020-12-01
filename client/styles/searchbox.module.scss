@@ -1,0 +1,15 @@
+.container {
+  input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid;
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    border-radius: none;
+  }
+
+  li {
+    z-index: 100;
+  }
+}

@@ -11,6 +11,7 @@ $primary-color: #b2edb3;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 :root {
@@ -20,16 +21,19 @@ $primary-color: #b2edb3;
 body {
   @include font(600);
   box-sizing: border-box;
+  font-size: 1rem;
 }
 
 .light-mode {
   background-color: #fff;
   color: #333;
+  border-color: #333;
   transition: background-color 0.3s ease;
 }
 .dark-mode {
   background-color: #1f1f2e;
   color: #fbfbfb;
+  border-color: #fbfbfb;
 }
 
 button {

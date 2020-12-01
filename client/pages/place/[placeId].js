@@ -5,7 +5,7 @@ import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
 
-import milestone from '../../services/milestone';
+import milestone from "../../services/milestone";
 
 const { GOOGLE_API_KEY } = process.env;
 
@@ -22,6 +22,7 @@ export default function PlaceContainer({ googleApiKey }) {
   };
     
   const labels = [...Array(25).keys()].map(i => i.toString());
+
 
   const graphData = {
     labels: labels,

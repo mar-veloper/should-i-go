@@ -1,5 +1,5 @@
 // Dependencies
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { debounce } from "lodash";
 import { geolocated } from "react-geolocated";
 import useSWR from "swr";
@@ -8,6 +8,10 @@ import useSWR from "swr";
 import Head from "next/head";
 import Searchbox from "../components/common/Searchbox";
 
+// Styles
+import styles from "../styles/index.module.scss";
+import ThemeContext from "../theme/Context";
+
 function Home({ coords }) {
   const [value, setValue] = useState("");
   const [paramEndpoint, setParamEndpoint] = useState("");
@@ -15,6 +19,8 @@ function Home({ coords }) {
   const debouncedSave = useRef(
     debounce((nextValue) => setParamEndpoint(nextValue), 1000)
   ).current;
+
+  const { bgTheme } = useContext(ThemeContext);
 
   const location = `${coords?.latitude},${coords?.longitude}`;
   const endpoint =
@@ -28,25 +34,27 @@ function Home({ coords }) {
     debouncedSave(nextValue);
   };
 
-  console.dir();
-
   return (
-    <div>
+    <div
+      className={styles.container}
+      style={{ backgroundImage: `url(${bgTheme})` }}
+    >
       <Head>
         <title>Should I Go</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={styles.inner}>
+        <h2>Enter a place to check how crowded it is.</h2>
 
-      <main>
         <form>
           <Searchbox
             data={data?.predictions}
             value={value}
             onChange={handleOnChange}
           />
-          <h1>HELLO :DDDDDDDDDDD this is main page</h1>
         </form>
-      </main>
+      </div>
+      {/* <div className={styles.overlay}></div> */}
     </div>
   );
 }
