@@ -4,6 +4,7 @@ import useSWR from "swr";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
+import { useState, useEffect } from 'react';
 
 import milestone from "../../services/milestone";
 
@@ -20,6 +21,37 @@ export default function PlaceContainer({ googleApiKey }) {
     lat: detailsData?.result.geometry.location.lat,
     lng: detailsData?.result.geometry.location.lng,
   };
+
+  //Circle Data
+
+  // !densityData
+  //           ? "Loading ..."
+  //           : densityData?.now
+  //           ? `${densityData?.now}%`
+  //           : "No data provided."
+
+  const [ circleVal, setCircleVal ] = useState(0);
+  console.log(circleVal);
+
+  const testVal = '55%';
+
+  const averageVal = (e) => {
+    e.preventDefault();
+    setCircleVal(testVal);
+  }
+
+  const liveVal = (e) => {
+    e.preventDefault();
+    setCircleVal(densityData?.now + '%');
+  }
+
+  useEffect(() => {
+    setCircleVal(densityData?.now + '%');
+  }, [])
+
+  const animateCircle = () => {
+    
+  }
 
   // Daily Overview Graph
 
@@ -38,7 +70,7 @@ export default function PlaceContainer({ googleApiKey }) {
         borderColor: "#4EB68E",
         pointRadius: '0',
         borderWidth: '3',
-        data: densityData?.monday
+        data: densityData?.today
       }
     ]
   }
@@ -100,21 +132,15 @@ export default function PlaceContainer({ googleApiKey }) {
       <section className="data-live">
         <h4 className="data-title">How crowded is it now?</h4>
         <div className="data-live-visual">
-          {
-            <p className="data-live-value">
-              {!densityData
-                ? "Loading ..."
-                : densityData?.now
-                ? `${densityData?.now}%`
-                : "No data provided."}
-            </p>
-          }
+        <p className="data-live-value">{circleVal}
+        </p>
+          
           <div className="circle">
             <div className="level"></div>
           </div>
         </div>
-        <Button label="Live" className="selected" />
-        <Button label="Average" />
+        <Button label="Live" className="selected" onClick={(e) => liveVal(e)}/>
+        <Button label="Average" onClick={(e) => averageVal(e)}/>
       </section>
 
       <section className="data-day">
@@ -130,16 +156,12 @@ export default function PlaceContainer({ googleApiKey }) {
       <section className="day-statistics">
         <ul className="day-statistics-copy">
           <li className="day-statistics-element">
-            <span>Best Time:</span>
-            <p>Go between 7-9pm.</p>
+            <span>Best Time to Go:</span>
+            <p>Go at 7pm.</p>
           </li>
           <li className="day-statistics-element">
-            <span>Busy hours:</span>
-            <p>It will be busy between 2-5pm.</p>
-          </li>
-          <li className="day-statistics-element">
-            <span>Next peak:</span>
-            <p>Starts in: 2hours 20min</p>
+            <span>Busiest hour:</span>
+            <p>It will be busy at 2pm.</p>
           </li>
         </ul>
       </section>
