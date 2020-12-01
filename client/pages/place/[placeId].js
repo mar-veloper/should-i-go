@@ -99,11 +99,6 @@ export default function PlaceContainer({ googleApiKey }) {
 
   return (
     <div>
-      <nav className="search-nav">
-        <p className="search-nav-copy">Should I go to</p>
-        <Input />
-      </nav>
-
       <section className="map-placeholder">
         <Map.Container
           coords={coords}
