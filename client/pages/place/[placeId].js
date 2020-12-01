@@ -4,6 +4,7 @@ import useSWR from "swr";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
+import { useState, useEffect } from 'react';
 
 import milestone from "../../services/milestone";
 
@@ -21,12 +22,35 @@ export default function PlaceContainer({ googleApiKey }) {
     lng: detailsData?.result.geometry.location.lng,
   };
 
+  //Circle Data
+
+  // !densityData
+  //           ? "Loading ..."
+  //           : densityData?.now
+  //           ? `${densityData?.now}%`
+  //           : "No data provided."
+
+
+  const [isLive, setIsLive] = useState(true);
+  const circleValue = isLive ? densityData?.now : "55";
+
+
+  // const testVal = '55%';
+  // const live = densityData?.now + '%';
+
+  const onLiveValue = () => setIsLive(true);
+  const onAverageValue = () => setIsLive(false);
+
+  const circleLevel = {
+    transform: `translateY(${100-Number(circleValue)}%)`,
+  }
+
   // Daily Overview Graph
 
   defaults.global.defaultFontFamily = 'Hk Grotesk';
   defaults.global.defaultFontColor = '#212234';
 
-  const labels = [...Array(25).keys()].map(i => i.toString());
+  const labels = [...Array(24).keys()].map(i => i.toString());
 
   const graphData = {
     labels: labels,
@@ -38,7 +62,7 @@ export default function PlaceContainer({ googleApiKey }) {
         borderColor: "#4EB68E",
         pointRadius: '0',
         borderWidth: '3',
-        data: densityData?.monday
+        data: densityData?.today
       }
     ]
   }
@@ -86,7 +110,10 @@ export default function PlaceContainer({ googleApiKey }) {
           label={detailsData?.result.name}
           googleApiKey={googleApiKey}
         />
+        <div className="gradient"></div>
       </section>
+      
+
       <section className="hero-content">
         <h3 className="question">
           {milestone(densityData?.now, detailsData?.result.name)}
@@ -96,19 +123,16 @@ export default function PlaceContainer({ googleApiKey }) {
       <section className="data-live">
         <h4 className="data-title">How crowded is it now?</h4>
         <div className="data-live-visual">
-          {
-            <p className="data-live-value">
-              {!densityData
-                ? "Loading ..."
-                : densityData?.now
-                ? `${densityData?.now}%`
-                : "No data provided."}
-            </p>
-          }
-          <div className="circle"></div>
+        <p className="data-live-value">
+          {circleValue}%
+        </p>
+          
+          <div className="circle">
+            <div className="level" style={circleLevel}></div>
+          </div>
         </div>
-        <Button label="Live" className="selected" />
-        <Button label="Average" />
+        <Button label="Live" className="selected" onClick={onLiveValue}/>
+        <Button label="Average" onClick={onAverageValue}/>
       </section>
 
       <section className="data-day">
@@ -119,6 +143,19 @@ export default function PlaceContainer({ googleApiKey }) {
             options={options}
           />
         </div>
+      </section>
+
+      <section className="day-statistics">
+        <ul className="day-statistics-copy">
+          <li className="day-statistics-element">
+            <span>Best Time to Go:</span>
+            <p>Go at 7pm.</p>
+          </li>
+          <li className="day-statistics-element">
+            <span>Busiest hour:</span>
+            <p>It will be busy at 2pm.</p>
+          </li>
+        </ul>
       </section>
     </div>
   );
