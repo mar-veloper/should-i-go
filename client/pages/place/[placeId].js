@@ -120,6 +120,23 @@ export default function PlaceContainer({ googleApiKey }) {
           />
         </div>
       </section>
+
+      <section className="day-statistics">
+        <ul className="day-statistics-copy">
+          <li className="day-statistics-element">
+            <span>Best Time:</span>
+            <p>Go between 7-9pm.</p>
+          </li>
+          <li className="day-statistics-element">
+            <span>Busy hours:</span>
+            <p>It will be busy between 2-5pm.</p>
+          </li>
+          <li className="day-statistics-element">
+            <span>Next peak:</span>
+            <p>Starts in: 2hours 20min</p>
+          </li>
+        </ul>
+      </section>
     </div>
   );
 }
