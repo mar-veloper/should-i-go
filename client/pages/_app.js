@@ -3,6 +3,7 @@ import "../styles/main.scss";
 import style from "../styles/layout.module.scss";
 
 import '../styles/loading.scss'
+import '../styles/about.scss'
 import { SWRConfig } from "swr";
 import Axios from "axios";
 import ThemeProvider from "../theme/index";
