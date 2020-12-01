@@ -5,6 +5,9 @@ import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
 
+import { Line } from 'react-chartjs-2';
+import { defaults } from 'react-chartjs-2';
+
 import milestone from "../../services/milestone";
 
 const { GOOGLE_API_KEY } = process.env;
@@ -20,22 +23,23 @@ export default function PlaceContainer({ googleApiKey }) {
     lat: detailsData?.result.geometry.location.lat,
     lng: detailsData?.result.geometry.location.lng,
   };
-    
-  const labels = [...Array(25).keys()].map(i => i.toString());
 
+  // Daily Overview Graph
+
+  defaults.global.defaultFontFamily = 'Hk Grotesk';
+  defaults.global.defaultFontColor = '#212234';
+
+  const labels = [...Array(25).keys()].map(i => i.toString());
 
   const graphData = {
     labels: labels,
     datasets: [
-      {
+      { 
         fill: false,
         lineTension: 0.5,
         pointBackgroundColor: '#B2EDB3',
         borderColor: "#4EB68E",
-        pointBorderColor: '#fff',
-        pointBorderWidth: '3',
         pointRadius: '0',
-        backgroundColor: "rgb(255, 99, 132)",
         borderWidth: '3',
         data: densityData?.monday
       }
@@ -46,6 +50,30 @@ export default function PlaceContainer({ googleApiKey }) {
     legend: { display: false },
     responsive: true, 
     maintainAspectRatio: false,
+    scales: {
+      xAxes: [
+        {
+          gridLines: {
+            display: false ,
+            color: "#FFFFFF"
+          },
+          ticks: {
+              beginAtZero: true,
+              autoSkip: true,
+              maxTicksLimit: 11
+          }
+        }
+      ],
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+            autoSkip: true,
+            maxTicksLimit: 5
+          }
+        },
+      ],
+    },
   }
 
   return (
