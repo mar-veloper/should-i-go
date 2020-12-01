@@ -21,7 +21,7 @@ export default function PlaceContainer({ googleApiKey }) {
     lat: detailsData?.result.geometry.location.lat,
     lng: detailsData?.result.geometry.location.lng,
   };
-
+    
   const labels = [...Array(25).keys()].map(i => i.toString());
 
   const graphData = {
@@ -58,6 +58,7 @@ export default function PlaceContainer({ googleApiKey }) {
   }
 
   console.log(densityData);
+  console.log(densityData?.monday);
 
   return (
     <div>
