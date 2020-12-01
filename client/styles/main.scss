@@ -86,3 +86,18 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+.data-day {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 980px;
+  position: relative;
+}
