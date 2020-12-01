@@ -1,13 +1,13 @@
 import ThemeToggle from "../common/ThemeToggle";
+import Link from "next/link";
 import style from "../../styles/layout.module.scss";
-import { Link } from "next/link";
 
 export default function Header() {
   return (
     <div className={style.header}>
-      <a href="/" className={style.logo}>
-        SHOULD I GO
-      </a>
+      <Link href="/">
+        <span className={style.logo}>SHOULD I GO</span>
+      </Link>
       <ThemeToggle />
     </div>
   );
