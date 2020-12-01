@@ -22,12 +22,12 @@ body {
 }
 
 button {
+  @include font(700);
   padding: 0.5rem;
   border-radius: 50px;
   letter-spacing: 1px;
   border: 1px solid black;
   text-transform: uppercase;
-  font-family: "HK Grotesk Bold";
   margin: 0.3rem;
 }
 

@@ -5,6 +5,7 @@ import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
 // import Chart from 'chart.js';
 import {Line} from 'react-chartjs-2';
+import { defaults } from 'react-chartjs-2';
 
 import milestone from '../../services/milestone';
 
@@ -22,38 +23,56 @@ export default function PlaceContainer({ googleApiKey }) {
     lng: detailsData?.result.geometry.location.lng,
   };
 
+  defaults.global.defaultFontFamily = 'Hk Grotesk';
+  defaults.global.defaultFontColor = '#212234';
+
   const labels = [...Array(25).keys()].map(i => i.toString());
 
   const graphData = {
     labels: labels,
     datasets: [
-      {
+      { 
         fill: false,
         lineTension: 0.5,
         pointBackgroundColor: '#B2EDB3',
         borderColor: "#4EB68E",
-        pointBorderColor: '#fff',
-        pointBorderWidth: '3',
         pointRadius: '0',
-        backgroundColor: "rgb(255, 99, 132)",
         borderWidth: '3',
         data: densityData?.monday
       }
     ]
   }
 
+
+
   const options = {
     legend: { display: false },
     responsive: true, 
     maintainAspectRatio: false,
     scales: {
-      // yAxes: [
-      //   {
-      //     ticks: {
-      //       beginAtZero: true,
-      //     },
-      //   },
-      // ],
+      xAxes: [
+        {
+          gridLines: {
+            display: false ,
+            color: "#FFFFFF"
+          },
+          ticks: {
+              beginAtZero: true,
+              autoSkip: true,
+              maxTicksLimit: 11
+          }
+        }
+      ],
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+            autoSkip: true,
+            maxTicksLimit: 5,
+            stacked: true
+          }
+        },
+      ],
     },
   }
 
