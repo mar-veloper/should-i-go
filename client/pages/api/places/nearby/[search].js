@@ -4,7 +4,6 @@ const googlePlace = new GooglePlaceProvider(GOOGLE_API_KEY);
 
 export default async (req, res) => {
   const { search, location } = req.query;
-
   try {
     const nearbySearch = await googlePlace.nearbySearch({
       location,
