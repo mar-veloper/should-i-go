@@ -91,6 +91,13 @@ button {
   height: 345px;
 }
 
+.gradient {
+  background: linear-gradient(181deg, rgba(251, 251, 251, 0) 50%, $white 76%);
+  width: 100vw;
+  height: 30vw;
+  transform: translateY(-93%);
+}
+
 .hero-content,
 .data-live {
   padding: 0 2rem;
@@ -106,7 +113,7 @@ button {
 .data-live,
 .data-day {
   text-align: center;
-  margin: 8rem 0;
+  margin: 6rem 0;
 }
 
 .data-live {
@@ -131,6 +138,14 @@ button {
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.level {
+  width: 100%;
+  bottom: 0;
+  height: 100%;
+  transform: translateY(69%);
+  background: #b2edb3;
 }
 
 .data-day {

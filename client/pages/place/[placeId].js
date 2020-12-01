@@ -26,7 +26,7 @@ export default function PlaceContainer({ googleApiKey }) {
   defaults.global.defaultFontFamily = 'Hk Grotesk';
   defaults.global.defaultFontColor = '#212234';
 
-  const labels = [...Array(25).keys()].map(i => i.toString());
+  const labels = [...Array(24).keys()].map(i => i.toString());
 
   const graphData = {
     labels: labels,
@@ -80,13 +80,17 @@ export default function PlaceContainer({ googleApiKey }) {
         <Input />
       </nav>
 
+      
       <section className="map-placeholder">
         <Map.Container
           coords={coords}
           label={detailsData?.result.name}
           googleApiKey={googleApiKey}
         />
+        <div className="gradient"></div>
       </section>
+      
+
       <section className="hero-content">
         <h3 className="question">
           {milestone(densityData?.now, detailsData?.result.name)}
@@ -105,7 +109,9 @@ export default function PlaceContainer({ googleApiKey }) {
                 : "No data provided."}
             </p>
           }
-          <div className="circle"></div>
+          <div className="circle">
+            <div className="level"></div>
+          </div>
         </div>
         <Button label="Live" className="selected" />
         <Button label="Average" />
