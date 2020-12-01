@@ -2,7 +2,7 @@
 }
 
 .header {
-  position: absolute;
+  // position: absolute;
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
@@ -16,11 +16,17 @@
     padding: 0;
     margin: 0;
     font-size: 1rem;
+    cursor: pointer;
   }
-}
 
-.logo {
-  font-weight: 800;
+  .logo {
+    font-weight: 1000;
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .navbar {
