@@ -28,8 +28,6 @@ function Home({ coords }) {
     debouncedSave(nextValue);
   };
 
-  console.dir();
-
   return (
     <div>
       <Head>
