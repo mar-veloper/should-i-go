@@ -16,22 +16,42 @@ $white: #FBFBFB;
   font-size: $size;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+:root {
+  font-size: 16px;
+}
+
 body {
   @include font(600, 1rem);
 }
 
 h4 {
-  font-size: 1.2rem;
+  @include font(600, 1.2rem)
 }
 
 .light-mode {
   background-color: $white;
   color: $primary-dark;
+  border-color: $primary-dark;
   transition: background-color 0.3s ease;
 }
+
 .dark-mode {
   background-color: $primary-dark;
   color: $white;
+  border-color: $white;
 }
 
 button {

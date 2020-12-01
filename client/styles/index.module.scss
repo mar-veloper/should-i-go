@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-size: 90vw;
+
+  h2 {
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+}
+
+.inner {
+  z-index: 10;
+  padding: 1rem 2rem;
+}
+
+.overlay {
+  background-color: rgba(251, 251, 251, 0.5);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}

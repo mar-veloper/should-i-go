@@ -1,9 +1,13 @@
-// import '../styles/globals.css';
-import "../styles/main.scss";
+// Dependencies
 import { SWRConfig } from "swr";
 import Axios from "axios";
+// Components
 import ThemeProvider from "../theme/index";
-import ThemeToggle from "../components/common/ThemeToggle";
+import Layout from "../components/layout";
+// Styles
+import "@fortawesome/fontawesome-free/css/all.css";
+import "../styles/main.scss";
+import '../styles/loading.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,8 +15,9 @@ function MyApp({ Component, pageProps }) {
       value={{ fetcher: (...args) => Axios(...args).then((res) => res.data) }}
     >
       <ThemeProvider>
-        <ThemeToggle />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </SWRConfig>
   );
