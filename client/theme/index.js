@@ -26,7 +26,7 @@ export default function ThemeProvider({ children }) {
     setBgTheme(
       darkMode.value
         ? "/assets/media/bg-dark.png"
-        : "/assets/media/bg-light.png"
+        : "/assets/media/bg-mobile-light.png"
     );
   }, [darkMode.value]);
 
