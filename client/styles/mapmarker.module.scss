@@ -1,0 +1,20 @@
+.placeholder {
+  position: absolute;
+}
+
+.label {
+  border-radius: 0 40px 40px 40px;
+  background-color: #b2edb3;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px 20px;
+  font-size: 16px;
+  margin: 10px 0 0 10px; 
+}
+
+.point {
+  width: 15px;
+  height: 15px;
+  background-color: #b2edb3;
+  border-radius: 40px;
+}
