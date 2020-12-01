@@ -1,12 +1,9 @@
 import { useRouter } from "next/router";
-import { Line } from 'react-chartjs-2';
+import { Line, defaults } from 'react-chartjs-2';
 import useSWR from "swr";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
-
-import { Line } from 'react-chartjs-2';
-import { defaults } from 'react-chartjs-2';
 
 import milestone from "../../services/milestone";
 
