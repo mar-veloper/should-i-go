@@ -1,10 +1,19 @@
+@import './base';
 @import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/hk-grotesk.min.css");
 
-$primary-color: #b2edb3;
+$primary-dark: #1F1F2E;
+$secondary-dark: #212234;
+$light-green: #b2edb3;
+$dark-green: #4EB68E;
+$light-grey: #F6F6F6;
+$white: #FBFBFB;
 
-@mixin font($weight) {
+
+
+@mixin font($weight, $size) {
   font-family: "HK Grotesk", sans-serif;
   font-weight: $weight;
+  font-size: $size;
 }
 
 * {
@@ -25,36 +34,40 @@ a {
 }
 
 body {
-  @include font(600);
-  box-sizing: border-box;
-  font-size: 1rem;
+  @include font(600, 1rem);
+}
+
+h4 {
+  @include font(600, 1.2rem)
 }
 
 .light-mode {
-  background-color: #fff;
-  color: #333;
-  border-color: #333;
+  background-color: $white;
+  color: $primary-dark;
+  border-color: $primary-dark;
   transition: background-color 0.3s ease;
 }
+
 .dark-mode {
-  background-color: #1f1f2e;
-  color: #fbfbfb;
-  border-color: #fbfbfb;
+  background-color: $primary-dark;
+  color: $white;
+  border-color: $white;
 }
 
 button {
+  @include font(700, 1rem);
   padding: 0.5rem;
   border-radius: 50px;
   letter-spacing: 1px;
-  border: 1px solid black;
+  border: 1px solid $primary-dark;
   text-transform: uppercase;
-  font-family: "HK Grotesk Bold";
   margin: 0.3rem;
+  cursor: pointer;
 }
 
 .selected {
-  background: $primary-color;
-  border: 1px solid $primary-color;
+  background: $light-green;
+  border: 1px solid $light-green;
 }
 
 .search-nav {
@@ -69,7 +82,7 @@ button {
 }
 
 .map-placeholder {
-  background: #eee;
+  background: $light-grey;
   height: 345px;
 }
 
@@ -80,17 +93,33 @@ button {
 
 .question {
   font-size: 2rem;
+  text-align: center;
 }
 
 .data-live,
 .data-day {
   text-align: center;
+  margin: 4rem 0;
 }
 
 .data-live-visual {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 2rem 0;
+}
+
+.data-live-value {
+  position: absolute;
+  @include font(700, 1.5rem);
+}
+
+.circle {
+  background: $light-grey;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .data-day {

@@ -12,6 +12,7 @@ import Searchbox from "../components/common/Searchbox";
 import styles from "../styles/index.module.scss";
 import ThemeContext from "../theme/Context";
 
+
 function Home({ coords }) {
   const [value, setValue] = useState("");
   const [paramEndpoint, setParamEndpoint] = useState("");
