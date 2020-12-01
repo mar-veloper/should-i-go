@@ -10,6 +10,7 @@ export default function ThemeProvider({ children }) {
   const [themeClass, setThemeClass] = useState(null);
   const [mapTheme, setMapTheme] = useState(null);
   const [bgTheme, setBgTheme] = useState(null);
+  const [activeLinkClass, setActiveLinkClass] = useState(null);
 
   useEffect(() => {
     setThemeClass(darkMode.value ? "dark-mode" : "light-mode");
@@ -21,6 +22,7 @@ export default function ThemeProvider({ children }) {
       )
     );
     setMapTheme(darkMode.value ? googleMapDark : googleMapLight);
+    setActiveLinkClass(darkMode.value ? "active-link-dark" : "active-link");
     setBgTheme(
       darkMode.value
         ? "/assets/media/bg-dark.png"
@@ -36,6 +38,7 @@ export default function ThemeProvider({ children }) {
         darkMode,
         themeClass,
         invertedThemeClass,
+        activeLinkClass,
         label,
         mapTheme,
         bgTheme,

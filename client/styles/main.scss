@@ -30,6 +30,18 @@ body {
   font-size: 1rem;
 }
 
+.active-link-dark {
+  border-top: 5px solid;
+  padding: 0.5rem 0 0.5rem;
+  color: #fff;
+}
+
+.active-link {
+  border-top: 5px solid;
+  padding: 0.5rem 0 0.5rem;
+  color: #333;
+}
+
 .light-mode {
   background-color: #fff;
   color: #333;
