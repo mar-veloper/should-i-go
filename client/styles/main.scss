@@ -41,6 +41,18 @@ h4 {
   @include font(600, 1.2rem)
 }
 
+.active-link-dark {
+  border-top: 5px solid;
+  padding: 0.5rem 0 0.5rem;
+  color: #fff;
+}
+
+.active-link {
+  border-top: 5px solid;
+  padding: 0.5rem 0 0.5rem;
+  color: #333;
+}
+
 .light-mode {
   background-color: $white;
   color: $primary-dark;

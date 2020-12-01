@@ -27,17 +27,32 @@
 }
 
 .navbar {
-  padding: 1rem 2rem;
   position: fixed;
   box-sizing: border-box;
   bottom: 0;
-  padding-bottom: 1rem;
   width: 100vw;
 
   ul {
+    max-width: 500px;
+    margin: 0 auto;
     list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
-  a {
-    color: inherit;
+
+  li {
+    width: 100%;
+    cursor: pointer;
+    box-sizing: content-box;
+    color: rgb(158, 158, 158);
+  }
+}
+
+.icon {
+  font-size: 1.5rem;
+  text-align: center;
+  p {
+    font-size: 0.8rem;
   }
 }
