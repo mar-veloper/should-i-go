@@ -1,22 +1,14 @@
 import GooglePlaceProvider from "google-place-provider";
-import Axios from "axios";
 const { GOOGLE_API_KEY } = process.env;
 const googlePlace = new GooglePlaceProvider(GOOGLE_API_KEY);
 
 export default async (req, res) => {
   const { input, location } = req.query;
-
-  // const {
-  //   data: { location },
-  // } = await Axios.post(
-  //   `https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_API_KEY}`
-  // );
-
   try {
     const autocomplete = await googlePlace.autocomplete({
       input,
-      location, //"60.6226580961889,16.77756996098595", //Sandviken, Sweden
-      radius: "300", //Kilometres
+      location,
+      radius: 300,
     });
     return res.status(200).json(autocomplete);
   } catch (error) {
