@@ -22,12 +22,15 @@ const Searchbox = ({ data, value, onChange }) => {
         value={value}
         onChange={onChange}
       />
-      <ComboboxPopover>
+      <ComboboxPopover className={`${styles.popover} ${themeClass}`}>
         <ComboboxList>
           {data &&
             data.map(({ place_id, description }) => (
               <Link key={place_id} href={`/place/${place_id}`}>
-                <ComboboxOption value={description} />
+                <ComboboxOption
+                  className={`${styles.list} ${themeClass}`}
+                  value={description}
+                />
               </Link>
             ))}
         </ComboboxList>
