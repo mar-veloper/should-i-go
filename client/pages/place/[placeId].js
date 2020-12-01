@@ -1,10 +1,9 @@
 import { useRouter } from "next/router";
+import { Line } from 'react-chartjs-2';
 import useSWR from "swr";
 import Button from "../../components/common/Button";
 import Input from "../../components/common/Input";
 import Map from "../../components/Map/";
-// import Chart from 'chart.js';
-import {Line} from 'react-chartjs-2';
 
 import milestone from '../../services/milestone';
 
@@ -46,19 +45,7 @@ export default function PlaceContainer({ googleApiKey }) {
     legend: { display: false },
     responsive: true, 
     maintainAspectRatio: false,
-    scales: {
-      // yAxes: [
-      //   {
-      //     ticks: {
-      //       beginAtZero: true,
-      //     },
-      //   },
-      // ],
-    },
   }
-
-  console.log(densityData);
-  console.log(densityData?.monday);
 
   return (
     <div>
