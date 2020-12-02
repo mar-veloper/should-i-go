@@ -20,14 +20,14 @@ export default function About() {
         </p>
         <ul className={styles.list}>
           <li className={styles.listEl}>The team behind this project:</li>
-          <li>
-            <a className={styles.link} href="https://www.linkedin.com/in/jrmt/">Jonmar Tamon</a>
+          <li>👋
+            <a className={styles.link} href="https://www.linkedin.com/in/jrmt/"> Jonmar Tamon</a>
           </li>
-          <li>
-            <a className={styles.link} href="https://github.com/AlanoxSwe">Alan Hajo</a>
+          <li>👋
+            <a className={styles.link} href="https://github.com/AlanoxSwe"> Alan Hajo</a>
           </li>
-          <li>
-            <a className={styles.link} href="https://github.com/annika-works">Annika Hallerberg</a>
+          <li>👋
+            <a className={styles.link} href="https://github.com/annika-works"> Annika Hallerberg</a>
           </li>
         </ul>
       </main>
