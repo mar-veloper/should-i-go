@@ -31,8 +31,20 @@ export default function PlaceContainer({ googleApiKey }) {
   const clientHour = new Date().getHours();
   const circleValue = isLive ? densityData?.now : densityData?.today[clientHour];
 
-  const onLiveValue = () => setIsLive(true);
-  const onAverageValue = () => setIsLive(false);
+  const [averClass, setAvClass] = useState('');
+  const [liveClass, setLiveClass] = useState('selected');
+
+  const onLiveValue = () => {
+    setIsLive(true);
+    setLiveClass('selected');
+    setAvClass('');
+  }
+
+  const onAverageValue = () => {
+    setIsLive(false);
+    setAvClass('selected');
+    setLiveClass('');
+  }
 
   const circleLevel = {
     transform: `translateY(${100 - Number(circleValue)}%)`,
@@ -69,8 +81,8 @@ export default function PlaceContainer({ googleApiKey }) {
               ></div>
             </div>
           </div>
-          <Button label="Live" className={`selected ${buttonClass}`} onClick={onLiveValue}/>
-          <Button label="Average" onClick={onAverageValue} className={buttonClass} />
+          <Button label="Live" className={`${buttonClass} ${liveClass}`} onClick={onLiveValue}/>
+          <Button label="Average" onClick={onAverageValue} className={`${buttonClass} ${averClass}`} />
         </section>
 
         <section className="data-day">
