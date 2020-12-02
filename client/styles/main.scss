@@ -36,15 +36,13 @@ h4 {
 }
 
 .active-link-dark {
-  border-top: 5px solid;
   padding: 0.5rem 0 0.5rem;
-  color: #fff;
+  color: $white;
 }
 
 .active-link {
-  border-top: 5px solid;
   padding: 0.5rem 0 0.5rem;
-  color: #333;
+  color: $primary-dark;
 }
 
 .light-mode {
