@@ -104,7 +104,7 @@ export default function PlaceContainer({ googleApiKey }) {
           label={detailsData?.result.name}
           googleApiKey={googleApiKey}
         />
-        {/* <div className="gradient"></div> */}
+        <div className={`gradient ${invertedThemeClass}`}></div>
       </section>
 
       <section className="hero-content">
