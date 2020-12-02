@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   height: 100vh;
-  background-size: 90vw;
+  background-size: cover;
+  background-repeat: none;
 
   h2 {
     font-weight: 500;

@@ -25,7 +25,7 @@ export default function ThemeProvider({ children }) {
     setActiveLinkClass(darkMode.value ? "active-link-dark" : "active-link");
     setBgTheme(
       darkMode.value
-        ? "/assets/media/bg-dark.png"
+        ? "/assets/media/mobile-screen-dark.png"
         : "/assets/media/bg-mobile-light.png"
     );
   }, [darkMode.value]);
