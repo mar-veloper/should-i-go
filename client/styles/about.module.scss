@@ -3,12 +3,33 @@
 }
 .title {
   font-size: 2rem;
+  margin-top: 4rem;
 }
 
 .text {
   margin: 2rem 0;
+  line-height: 1.3;
+  font-weight: 500;
 }
 
 .list {
   list-style-type: none;
+}
+
+.list li {
+  margin: 0.5rem 0;
+}
+
+.listEl {
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.span {
+  font-style: italic;
+}
+
+.link {
+  font-weight: 500;
+  text-decoration: underline;
 }
