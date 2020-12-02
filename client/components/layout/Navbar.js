@@ -13,7 +13,7 @@ export default function Navbar() {
         <li>
           <ActiveLink href="/">
             <div className={style.icon}>
-              <i className="fas fa-search-location"></i>
+              {/* <i className="fas fa-search-location"></i> */}
               <p>Search</p>
             </div>
           </ActiveLink>
@@ -21,7 +21,7 @@ export default function Navbar() {
         <li>
           <ActiveLink href="/about">
             <div className={style.icon}>
-              <i className="far fa-question-circle"></i>
+              {/* <i className="far fa-question-circle"></i> */}
               <p>About</p>
             </div>
           </ActiveLink>

@@ -45,7 +45,7 @@ function Home({ coords }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.inner}>
-        <h2>Enter a place to check how crowded it is.</h2>
+        <h3 className={styles.title}>Enter a place to check how crowded it is!</h3>
 
         <form>
           <Searchbox

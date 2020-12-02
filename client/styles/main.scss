@@ -22,8 +22,9 @@ a {
   color: inherit;
 }
 
-:root {
-  font-size: 16px;
+h3 {
+  font-size: 2rem;
+  line-height: 1.2;
 }
 
 body {
@@ -35,16 +36,18 @@ h4 {
   margin-bottom: 1.5rem;
 }
 
+.question {
+  text-align: center;
+}
+
 .active-link-dark {
-  border-top: 5px solid;
   padding: 0.5rem 0 0.5rem;
-  color: #fff;
+  color: $white;
 }
 
 .active-link {
-  border-top: 5px solid;
   padding: 0.5rem 0 0.5rem;
-  color: #333;
+  color: $primary-dark;
 }
 
 .light-mode {
@@ -115,11 +118,6 @@ button {
   margin-top: 4rem;
 }
 
-.question {
-  font-size: 2rem;
-  text-align: center;
-  line-height: 1.2;
-}
 
 .data-live,
 .data-day {
