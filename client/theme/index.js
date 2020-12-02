@@ -36,6 +36,12 @@ export default function ThemeProvider({ children }) {
     themeClass === "light-mode" ? "#1f1f2e" : "#fbfbfb";
   const graphThemeColor =
     themeClass === "light-mode" ? "#4eb68e" : "#b2edb3";
+  const circleAnimationColor = 
+    themeClass === "light-mode" ? "light-circle" : "dark-circle";
+  const buttonClass =
+    themeClass === "light-mode" ? "light-button" : "dark-button";
+
+  
   return (
     <ThemeContext.Provider
       value={{
@@ -48,6 +54,8 @@ export default function ThemeProvider({ children }) {
         bgTheme,
         spinnerThemeColor,
         graphThemeColor,
+        circleAnimationColor,
+        buttonClass,
       }}
     >
       {children}
