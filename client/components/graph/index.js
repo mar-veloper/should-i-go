@@ -37,17 +37,25 @@ export default function LineGraph({ data }) {
           ticks: {
             beginAtZero: true,
             autoSkip: true,
-            maxTicksLimit: 11,
+            maxTicksLimit: 6,
           },
-        },
+          scaleLabel: {
+            display: true,
+            labelString: 'Time'
+          }
+       },
       ],
       yAxes: [
         {
           ticks: {
             beginAtZero: true,
             autoSkip: true,
-            maxTicksLimit: 10,
+            maxTicksLimit: 5,
           },
+          scaleLabel: {
+            display: true,
+            labelString: 'Visitor Density in %'
+          }
         },
       ],
     },
