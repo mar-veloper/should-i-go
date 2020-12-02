@@ -15,27 +15,29 @@ import ThemeContext from "../../theme/Context";
 const Searchbox = ({ data, value, onChange }) => {
   const { themeClass } = useContext(ThemeContext);
   return (
-    <Combobox className={styles.container} aria-labelledby="demo">
-      <ComboboxInput
-        className={themeClass}
-        placeholder="Search..."
-        value={value}
-        onChange={onChange}
-      />
-      <ComboboxPopover className={`${styles.popover} ${themeClass}`}>
-        <ComboboxList>
-          {data &&
-            data.map(({ place_id, description }) => (
-              <Link key={place_id} href={`/place/${place_id}`}>
-                <ComboboxOption
-                  className={`${styles.list} ${themeClass}`}
-                  value={description}
-                />
-              </Link>
-            ))}
-        </ComboboxList>
-      </ComboboxPopover>
-    </Combobox>
+    <form onSubmit={(e) => e.preventDefault()}>
+      <Combobox className={styles.container} aria-labelledby="demo">
+        <ComboboxInput
+          className={themeClass}
+          placeholder="Search..."
+          value={value}
+          onChange={onChange}
+        />
+        <ComboboxPopover className={`${styles.popover} ${themeClass}`}>
+          <ComboboxList>
+            {data &&
+              data.map(({ place_id, description }) => (
+                <Link key={place_id} href={`/place/${place_id}`}>
+                  <ComboboxOption
+                    className={`${styles.list} ${themeClass}`}
+                    value={description}
+                  />
+                </Link>
+              ))}
+          </ComboboxList>
+        </ComboboxPopover>
+      </Combobox>
+    </form>
   );
 };
 

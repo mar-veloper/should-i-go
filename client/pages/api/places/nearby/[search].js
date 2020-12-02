@@ -7,7 +7,7 @@ export default async (req, res) => {
   try {
     const nearbySearch = await googlePlace.nearbySearch({
       location,
-      radius: 1000,
+      radius: 5000,
       keyword: search,
     });
     return res.status(200).json(nearbySearch);
