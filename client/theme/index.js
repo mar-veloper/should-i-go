@@ -34,6 +34,8 @@ export default function ThemeProvider({ children }) {
     themeClass === "light-mode" ? "dark-mode" : "light-mode";
   const spinnerThemeColor =
     themeClass === "light-mode" ? "#1f1f2e" : "#fbfbfb";
+  const graphThemeColor =
+    themeClass === "light-mode" ? "#4eb68e" : "#b2edb3";
   return (
     <ThemeContext.Provider
       value={{
@@ -44,7 +46,8 @@ export default function ThemeProvider({ children }) {
         label,
         mapTheme,
         bgTheme,
-        spinnerThemeColor
+        spinnerThemeColor,
+        graphThemeColor,
       }}
     >
       {children}

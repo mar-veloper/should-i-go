@@ -1,14 +1,15 @@
+// Dependencies
+import { useState, useContext } from "react";
 import { useRouter } from "next/router";
-import { Line, defaults } from "react-chartjs-2";
-import { merge } from 'lodash';
 import useSWR from "swr";
+//Components
 import Button from "../../components/common/Button";
 import Map from "../../components/Map/";
-import { useState, useContext } from "react";
-
 import milestone from "../../services/milestone";
-import ThemeContext from "../../theme/Context";
 import Loading from "../../components/common/Loading";
+import LineGraph from '../../components/graph'
+//Context
+import ThemeContext from "../../theme/Context";
 
 const { GOOGLE_API_KEY } = process.env;
 
@@ -19,16 +20,16 @@ export default function PlaceContainer({ googleApiKey }) {
 
   const { data: detailsData } = useSWR(`/api/places/details/${placeId}`);
   const { data: densityData } = useSWR(`/api/places/populartimes/${placeId}`);
-
+  
   const coords = {
     lat: detailsData?.result.geometry.location.lat,
     lng: detailsData?.result.geometry.location.lng,
   };
-
-  //Circle Data
-
+  
   const [isLive, setIsLive] = useState(true);
-  const circleValue = isLive ? densityData?.now : "55";
+  
+  const clientHour = new Date().getHours();
+  const circleValue = isLive ? densityData?.now : densityData?.today[clientHour];
 
   const onLiveValue = () => setIsLive(true);
   const onAverageValue = () => setIsLive(false);
@@ -36,67 +37,7 @@ export default function PlaceContainer({ googleApiKey }) {
   const circleLevel = {
     transform: `translateY(${100 - Number(circleValue)}%)`,
   };
-
-  // Daily Overview Graph
-
-  // defaults.global.defaultFontFamily = "Hk Grotesk";
-  // Line.defaults.global.defaultFontColor = "#FF0000";
-
-  const labels = [...Array(24).keys()].map((i) => i.toString());
-
-  const graphData = {
-    labels: labels,
-    datasets: [
-      {
-        fill: true,
-        backgroundColor: spinnerThemeColor,
-        lineTension: 0.5,
-        pointBackgroundColor: "#B2EDB3",
-        borderColor: spinnerThemeColor,
-        pointRadius: "0",
-        borderWidth: "0",
-        data: densityData?.today,
-      },
-    ],
-  };
-
-  const options = {
-    legend: { display: false },
-    responsive: true,
-    defaultColor: "#FF0000",
-    maintainAspectRatio: false,
-    scales: {
-      xAxes: [
-        {
-          gridLines: {
-            display: false,
-          },
-          ticks: {
-            beginAtZero: true,
-            autoSkip: true,
-            maxTicksLimit: 11,
-          },
-        },
-      ],
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-            autoSkip: true,
-            maxTicksLimit: 10,
-            // suggestedMax: 100,
-          },
-        },
-      ],
-    },
-  };
-
-  merge(defaults, {
-    global: {
-      defaultFontColor: spinnerThemeColor,
-    },
-  });
-
+  
   return (
     <>
       <Loading data={densityData} color={spinnerThemeColor} theme={themeClass} />
@@ -135,7 +76,7 @@ export default function PlaceContainer({ googleApiKey }) {
         <section className="data-day">
           <h4 className="data-title">Day overview</h4>
           <div className={`data-wrapper`}>
-            <Line data={graphData} options={options} defaults={defaults} />
+            <LineGraph data={densityData?.today} />
           </div>
         </section>
 
