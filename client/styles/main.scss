@@ -114,11 +114,11 @@ button {
   pointer-events: none;
 
   &.light-mode {
-    background: linear-gradient(181deg, rgba(251, 251, 251, 0) 50%, $white 76%);
+    background: linear-gradient(180deg, rgba(251, 251, 251, 0) 50%, $white 76%);
   }
 
   &.dark-mode {
-    background: linear-gradient(181deg, rgba(251, 251, 251, 0) 50%, $primary-dark 76%);
+    background: linear-gradient(180deg, rgba(251, 251, 251, 0) 50%, $primary-dark 76%);
   }
 }
 
