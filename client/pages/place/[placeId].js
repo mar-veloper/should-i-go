@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { Line, defaults } from "react-chartjs-2";
+import { merge } from 'lodash';
 import useSWR from "swr";
 import Button from "../../components/common/Button";
 import Map from "../../components/Map/";
@@ -38,8 +39,8 @@ export default function PlaceContainer({ googleApiKey }) {
 
   // Daily Overview Graph
 
-  defaults.global.defaultFontFamily = "Hk Grotesk";
-  defaults.global.defaultFontColor = "#212234";
+  // defaults.global.defaultFontFamily = "Hk Grotesk";
+  // Line.defaults.global.defaultFontColor = "#FF0000";
 
   const labels = [...Array(24).keys()].map((i) => i.toString());
 
@@ -47,12 +48,13 @@ export default function PlaceContainer({ googleApiKey }) {
     labels: labels,
     datasets: [
       {
-        fill: false,
+        fill: true,
+        backgroundColor: spinnerThemeColor,
         lineTension: 0.5,
         pointBackgroundColor: "#B2EDB3",
-        borderColor: "#4EB68E",
+        borderColor: spinnerThemeColor,
         pointRadius: "0",
-        borderWidth: "3",
+        borderWidth: "0",
         data: densityData?.today,
       },
     ],
@@ -61,13 +63,13 @@ export default function PlaceContainer({ googleApiKey }) {
   const options = {
     legend: { display: false },
     responsive: true,
+    defaultColor: "#FF0000",
     maintainAspectRatio: false,
     scales: {
       xAxes: [
         {
           gridLines: {
             display: false,
-            color: "#FFFFFF",
           },
           ticks: {
             beginAtZero: true,
@@ -81,12 +83,19 @@ export default function PlaceContainer({ googleApiKey }) {
           ticks: {
             beginAtZero: true,
             autoSkip: true,
-            maxTicksLimit: 5,
+            maxTicksLimit: 10,
+            // suggestedMax: 100,
           },
         },
       ],
     },
   };
+
+  merge(defaults, {
+    global: {
+      defaultFontColor: spinnerThemeColor,
+    },
+  });
 
   return (
     <>
@@ -126,7 +135,7 @@ export default function PlaceContainer({ googleApiKey }) {
         <section className="data-day">
           <h4 className="data-title">Day overview</h4>
           <div className={`data-wrapper`}>
-            <Line data={graphData} options={options} />
+            <Line data={graphData} options={options} defaults={defaults} />
           </div>
         </section>
 
@@ -136,7 +145,7 @@ export default function PlaceContainer({ googleApiKey }) {
               <span>Best Time to Go:</span>
               <p>
                 Go at {densityData?.bestHour?.hour}:00, the visitation density
-                will be {densityData?.bestHour.population}%
+                will be {densityData?.bestHour?.population}%
               </p>
             </li>
             <li className="day-statistics-element">
