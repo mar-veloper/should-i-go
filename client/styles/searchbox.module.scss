@@ -21,5 +21,9 @@
 
 .list {
   border-bottom: 1pt solid;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
+  &:hover {
+    background: rgba(234, 245, 255, 0.657);
+    color: #333;
+  }
 }

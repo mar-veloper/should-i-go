@@ -1,0 +1,34 @@
+.container {
+  margin: 8rem 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+
+.list {
+  margin-top: 2rem;
+}
+
+.item {
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #f6f6f6;
+  cursor: pointer;
+
+  &.light-mode {
+    background-color: #f6f6f6 !important;
+  }
+
+  &.dark-mode {
+    background-color: #212234 !important;
+  }
+}
+
+.small {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}

@@ -46,16 +46,12 @@ function Home({ coords }) {
       </Head>
       <div className={styles.inner}>
         <h3 className={styles.title}>Enter a place to check how crowded it is!</h3>
-
-        <form>
-          <Searchbox
-            data={data?.predictions}
-            value={value}
-            onChange={handleOnChange}
-          />
-        </form>
+        <Searchbox
+          data={data?.predictions}
+          value={value}
+          onChange={handleOnChange}
+        />
       </div>
-      {/* <div className={styles.overlay}></div> */}
     </div>
   );
 }
