@@ -22,8 +22,9 @@ a {
   color: inherit;
 }
 
-:root {
-  font-size: 16px;
+h3 {
+  font-size: 2rem;
+  line-height: 1.2;
 }
 
 body {
@@ -33,6 +34,10 @@ body {
 h4 {
   @include font(600, 1.2rem);
   margin-bottom: 1.5rem;
+}
+
+.question {
+  text-align: center;
 }
 
 .active-link-dark {
@@ -113,11 +118,6 @@ button {
   margin-top: 4rem;
 }
 
-.question {
-  font-size: 2rem;
-  text-align: center;
-  line-height: 1.2;
-}
 
 .data-live,
 .data-day {
