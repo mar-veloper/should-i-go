@@ -68,16 +68,26 @@ button {
   padding: 0.5rem;
   border-radius: 50px;
   letter-spacing: 1px;
-  border: 1px solid $primary-dark;
   text-transform: uppercase;
   margin: 0.3rem;
   cursor: pointer;
   background: transparent;
 }
 
+.light-button {
+  color: $primary-dark;
+  border: 1px solid $primary-dark;
+}
+
+.dark-button {
+  color: $light-grey;
+  border: 1px solid $light-grey;
+}
+
 .selected {
   background: $light-green;
-  border: 1px solid $light-green;
+  color: $primary-dark !important;
+  border: 1px solid $light-green !important;
 }
 
 .search-nav {
@@ -97,10 +107,10 @@ button {
 }
 
 .gradient {
-  background: linear-gradient(181deg, rgba(251, 251, 251, 0) 50%, $white 76%);
+  background: linear-gradient(180deg, rgba(251, 251, 251, 0) 50%, $white 76%);
   width: 100vw;
   height: 115px;
-  transform: translateY(-100%);
+  transform: translateY(-98%);
   pointer-events: none;
 
   &.light-mode {
@@ -138,7 +148,6 @@ button {
 
 .data-live-value {
   position: absolute;
-  color: $primary-dark;
   z-index: 9;
   @include font(700, 1.5rem);
 }
@@ -188,3 +197,12 @@ button {
 .day-statistics-element {
   margin-bottom: 0.8rem;
 }
+
+.light-circle {
+  background: #f6f6f6;
+}
+
+.dark-circle {
+  background: $secondary-dark;
+}
+

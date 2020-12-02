@@ -16,7 +16,7 @@ const { GOOGLE_API_KEY } = process.env;
 export default function PlaceContainer({ googleApiKey }) {
   const router = useRouter();
   const { placeId } = router.query;
-  const { invertedThemeClass, themeClass, spinnerThemeColor } = useContext(ThemeContext);
+  const { invertedThemeClass, themeClass, spinnerThemeColor, circleAnimationColor, buttonClass } = useContext(ThemeContext);
 
   const { data: detailsData } = useSWR(`/api/places/details/${placeId}`);
   const { data: densityData } = useSWR(`/api/places/populartimes/${placeId}`);
@@ -60,17 +60,17 @@ export default function PlaceContainer({ googleApiKey }) {
         <section className="data-live">
           <h4 className="data-title">How crowded is it now?</h4>
           <div className={`data-live-visual`}>
-            <p className={`data-live-value`}>{circleValue}%</p>
+            <p className={`data-live-value`} theme={invertedThemeClass} >{circleValue}%</p>
 
-            <div className={`circle`}>
+            <div className={`circle ${circleAnimationColor}`}>
               <div
-                className={`level  ${invertedThemeClass}`}
+                className={`level ${invertedThemeClass}`}
                 style={circleLevel}
               ></div>
             </div>
           </div>
-          <Button label="Live" className="selected" onClick={onLiveValue} />
-          <Button label="Average" onClick={onAverageValue} />
+          <Button label="Live" className={`selected ${buttonClass}`} onClick={onLiveValue}/>
+          <Button label="Average" onClick={onAverageValue} className={buttonClass} />
         </section>
 
         <section className="data-day">
