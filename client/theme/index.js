@@ -32,6 +32,8 @@ export default function ThemeProvider({ children }) {
 
   const invertedThemeClass =
     themeClass === "light-mode" ? "dark-mode" : "light-mode";
+  const spinnerThemeColor =
+    themeClass === "light-mode" ? "#1f1f2e" : "#fbfbfb";
   return (
     <ThemeContext.Provider
       value={{
@@ -42,6 +44,7 @@ export default function ThemeProvider({ children }) {
         label,
         mapTheme,
         bgTheme,
+        spinnerThemeColor
       }}
     >
       {children}

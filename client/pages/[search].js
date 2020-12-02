@@ -1,13 +1,16 @@
 import { useRouter } from "next/router";
 import { geolocated } from "react-geolocated";
-import MoonLoader from "react-spinners/MoonLoader";
+import { useContext } from "react";
+import ThemeContext from "../theme/Context";
 import useSWR from "swr";
 import Link from 'next/link';
+import Loading from "../components/common/Loading";
 
 
 function SearchContainer ({ coords, isGeolocationAvailable, isGeolocationEnabled }) {
   const router = useRouter();
   const { search } = router.query;
+  const { themeClass, spinnerThemeColor } = useContext(ThemeContext);
 
   const location = `${coords?.latitude},${coords?.longitude}`;
 
@@ -17,11 +20,7 @@ function SearchContainer ({ coords, isGeolocationAvailable, isGeolocationEnabled
   
   return (
     <div>
-      {!data ?
-        <div className="loading">
-          <MoonLoader size={150} color={"#eeeeee"} />
-        </div>
-      : null }
+      <Loading data={data} theme={themeClass} color={spinnerThemeColor} />
       <h1>Results for: {search}</h1>
       <ul>
         {data?.results.length > 0
