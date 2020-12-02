@@ -1,13 +1,14 @@
+
 @import './base';
 @import './about.module';
 @import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/hk-grotesk.min.css");
 
-$primary-dark: #1F1F2E;
+$primary-dark: #1f1f2e;
 $secondary-dark: #212234;
 $light-green: #b2edb3;
-$dark-green: #4EB68E;
-$light-grey: #F6F6F6;
-$white: #FBFBFB;
+$dark-green: #4eb68e;
+$light-grey: #f6f6f6;
+$white: #fbfbfb;
 
 @mixin font($weight, $size) {
   font-family: "HK Grotesk", sans-serif;
@@ -92,13 +93,25 @@ button {
   height: 345px;
 }
 
-.gradient {
-  background: linear-gradient(181deg, rgba(251, 251, 251, 0) 50%, $white 76%);
-  width: 100vw;
-  height: 30vw;
-  transform: translateY(-93%);
-  pointer-events: none;
-}
+// .gradient {
+//   background: linear-gradient(
+//     181deg,
+//     rgba(251, 251, 251, 0) 50%,
+//     $primary-dark 76%
+//   );
+//   width: 100vw;
+//   height: 30vw;
+//   transform: translateY(-93%);
+//   pointer-events: none;
+// }
+
+// .gradient {
+//   background: linear-gradient(181deg, rgba(251, 251, 251, 0) 50%, $white 76%);
+//   width: 100vw;
+//   height: 30vw;
+//   transform: translateY(-93%);
+//   pointer-events: none;
+// }
 
 .hero-content,
 .data-live {
@@ -131,6 +144,7 @@ button {
 
 .data-live-value {
   position: absolute;
+  color: $primary-dark;
   z-index: 9;
   @include font(700, 1.5rem);
 }
