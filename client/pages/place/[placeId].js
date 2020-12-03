@@ -48,6 +48,7 @@ export default function PlaceContainer({ googleApiKey }) {
 
   const circleLevel = {
     transform: `translateY(${100 - Number(circleValue)}%)`,
+    WebkitTransform: `translateY(${100 - Number(circleValue)}%)`,
   };
   
   return (
