@@ -17,6 +17,7 @@
     "google-map-react": "^2.1.9",
     "google-place-provider": "^1.3.4",
     "lodash": "^4.17.20",
+    "lscache": "^1.3.0",
     "next": "10.0.3",
     "puppeteer": "^5.5.0",
     "react": "17.0.1",

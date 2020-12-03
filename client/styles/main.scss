@@ -1,6 +1,5 @@
-
-@import './base';
-@import './about.module';
+@import "./base";
+@import "./about.module";
 @import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/hk-grotesk.min.css");
 
 $primary-dark: #1f1f2e;
@@ -14,6 +13,10 @@ $white: #fbfbfb;
   font-family: "HK Grotesk", sans-serif;
   font-weight: $weight;
   font-size: $size;
+}
+
+* {
+  outline: none;
 }
 
 a {
@@ -41,12 +44,10 @@ h4 {
 }
 
 .active-link-dark {
-  padding: 0.5rem 0 0.5rem;
   color: $white;
 }
 
 .active-link {
-  padding: 0.5rem 0 0.5rem;
   color: $primary-dark;
 }
 
@@ -117,7 +118,11 @@ button {
   }
 
   &.dark-mode {
-    background: linear-gradient(180deg, rgba(251, 251, 251, 0) 50%, $primary-dark 76%);
+    background: linear-gradient(
+      180deg,
+      rgba(251, 251, 251, 0) 50%,
+      $primary-dark 76%
+    );
   }
 }
 
@@ -126,7 +131,6 @@ button {
   padding: 0 2rem;
   margin-top: 4rem;
 }
-
 
 .data-live,
 .data-day {
@@ -147,12 +151,13 @@ button {
 
 .data-live-value {
   position: absolute;
-  z-index: 9;
+  color: $primary-dark !important;
   @include font(700, 1.5rem);
+  z-index: 5;
 }
 
 .circle {
-  background: $light-grey;
+  background: $light-grey !important;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -160,12 +165,13 @@ button {
 }
 
 .level {
+  z-index: 10;
   width: 100%;
   bottom: 0;
   height: 100%;
   -webkit-transform: translateY(100%);
-      -ms-transform: translateY(100%);
-          transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
   -webkit-transition: -webkit-transform 0.8s ease-in-out;
   transition: -webkit-transform 0.8s ease-in-out;
   -o-transition: transform 0.8s ease-in-out;
@@ -210,4 +216,3 @@ button {
 .dark-circle {
   background: $secondary-dark;
 }
-

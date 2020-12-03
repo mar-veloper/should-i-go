@@ -1,13 +1,14 @@
 // Dependencies
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import lscache from "lscache";
 //Components
 import Button from "../../components/common/Button";
 import Map from "../../components/Map/";
 import milestone from "../../services/milestone";
 import Loading from "../../components/common/Loading";
-import LineGraph from '../../components/graph'
+import LineGraph from "../../components/graph";
 //Context
 import ThemeContext from "../../theme/Context";
 
@@ -16,44 +17,67 @@ const { GOOGLE_API_KEY } = process.env;
 export default function PlaceContainer({ googleApiKey }) {
   const router = useRouter();
   const { placeId } = router.query;
-  const { invertedThemeClass, themeClass, spinnerThemeColor, circleAnimationColor, buttonClass } = useContext(ThemeContext);
+  const {
+    invertedThemeClass,
+    themeClass,
+    spinnerThemeColor,
+    circleAnimationColor,
+    buttonClass,
+  } = useContext(ThemeContext);
 
   const { data: detailsData } = useSWR(`/api/places/details/${placeId}`);
   const { data: densityData } = useSWR(`/api/places/populartimes/${placeId}`);
-  
+
   const coords = {
     lat: detailsData?.result.geometry.location.lat,
     lng: detailsData?.result.geometry.location.lng,
   };
-  
-  const [isLive, setIsLive] = useState(true);
-  
-  const clientHour = new Date().getHours();
-  const circleValue = isLive ? densityData?.now : densityData?.today[clientHour];
 
-  const [averClass, setAvClass] = useState('');
-  const [liveClass, setLiveClass] = useState('selected');
+  const url = `/place/${placeId}/`;
+
+  useEffect(() => {
+    if (detailsData?.result.name) {
+      lscache.set("lastSearched", {
+        url,
+        placeName: detailsData.result.name,
+      });
+    }
+  }, [placeId, detailsData]);
+
+  const [isLive, setIsLive] = useState(true);
+
+  const clientHour = new Date().getHours();
+  const circleValue = isLive
+    ? densityData?.now
+    : densityData?.today[clientHour];
+
+  const [averClass, setAvClass] = useState("");
+  const [liveClass, setLiveClass] = useState("selected");
 
   const onLiveValue = () => {
     setIsLive(true);
-    setLiveClass('selected');
-    setAvClass('');
-  }
+    setLiveClass("selected");
+    setAvClass("");
+  };
 
   const onAverageValue = () => {
     setIsLive(false);
-    setAvClass('selected');
-    setLiveClass('');
-  }
+    setAvClass("selected");
+    setLiveClass("");
+  };
 
   const circleLevel = {
     transform: `translateY(${100 - Number(circleValue)}%)`,
     WebkitTransform: `translateY(${100 - Number(circleValue)}%)`,
   };
-  
+
   return (
     <>
-      <Loading data={densityData} color={spinnerThemeColor} theme={themeClass} />
+      <Loading
+        data={densityData}
+        color={spinnerThemeColor}
+        theme={themeClass}
+      />
       <div>
         <section className="map-placeholder">
           <Map.Container
@@ -73,7 +97,9 @@ export default function PlaceContainer({ googleApiKey }) {
         <section className="data-live">
           <h4 className="data-title">How crowded is it now?</h4>
           <div className={`data-live-visual`}>
-            <p className={`data-live-value`} theme={invertedThemeClass} >{circleValue}%</p>
+            <p className={`data-live-value`} theme={invertedThemeClass}>
+              {circleValue}%
+            </p>
 
             <div className={`circle ${circleAnimationColor}`}>
               <div
@@ -82,12 +108,20 @@ export default function PlaceContainer({ googleApiKey }) {
               ></div>
             </div>
           </div>
-          <Button label="Live" className={`${buttonClass} ${liveClass}`} onClick={onLiveValue}/>
-          <Button label="Average" onClick={onAverageValue} className={`${buttonClass} ${averClass}`} />
+          <Button
+            label="Live"
+            className={`${buttonClass} ${liveClass}`}
+            onClick={onLiveValue}
+          />
+          <Button
+            label="Average"
+            onClick={onAverageValue}
+            className={`${buttonClass} ${averClass}`}
+          />
         </section>
 
         <section className="data-day">
-          <h4 className="data-title">Day overview</h4>
+          <h4 className="data-title">Average day overview</h4>
           <div className={`data-wrapper`}>
             <LineGraph data={densityData?.today} />
           </div>

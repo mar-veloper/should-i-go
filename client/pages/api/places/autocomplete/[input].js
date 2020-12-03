@@ -19,7 +19,7 @@ export default async (req, res) => {
   try {
     const autocomplete = await googlePlace.autocomplete({
       input,
-      location: devLoc,
+      location: userLocation,
       radius: 300,
     });
     return res.status(200).json(autocomplete);

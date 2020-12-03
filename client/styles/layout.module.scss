@@ -41,14 +41,25 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-top: 1px solid;
   }
 
-  li {
+  .lastSearch {
+    border-top: 1px solid;
+  }
+
+  li,
+  .lastSearch {
+    z-index: 90;
     width: 100%;
     cursor: pointer;
     box-sizing: content-box;
     color: rgb(158, 158, 158);
-    padding: 0.5rem; 
+    padding: 1rem 0 1rem;
+    font-size: 1rem;
+    &:first-child {
+      border-right: 1px solid;
+    }
   }
 }
 
@@ -56,6 +67,6 @@
   font-size: 1.5rem;
   text-align: center;
   p {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }
