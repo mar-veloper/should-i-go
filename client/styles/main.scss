@@ -107,18 +107,17 @@ button {
 }
 
 .gradient {
-  background: linear-gradient(180deg, rgba(251, 251, 251, 0) 50%, $white 76%);
   width: 100vw;
   height: 115px;
   transform: translateY(-98%);
   pointer-events: none;
 
   &.light-mode {
-    background: linear-gradient(181deg, rgba(251, 251, 251, 0) 50%, $white 76%);
+    background: linear-gradient(180deg, rgba(251, 251, 251, 0) 50%, $white 76%);
   }
 
   &.dark-mode {
-    background: linear-gradient(181deg, rgba(251, 251, 251, 0) 50%, $primary-dark 76%);
+    background: linear-gradient(180deg, rgba(251, 251, 251, 0) 50%, $primary-dark 76%);
   }
 }
 
@@ -164,8 +163,14 @@ button {
   width: 100%;
   bottom: 0;
   height: 100%;
-  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: -webkit-transform 0.8s ease-in-out;
+  -o-transition: transform 0.8s ease-in-out;
   transition: transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
   background: $light-green;
 }
 
