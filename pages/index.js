@@ -12,13 +12,12 @@ import Searchbox from "../components/common/Searchbox";
 import styles from "../styles/index.module.scss";
 import ThemeContext from "../theme/Context";
 
-
 function Home({ coords }) {
   const [value, setValue] = useState("");
   const [paramEndpoint, setParamEndpoint] = useState("");
 
   const debouncedSave = useRef(
-    debounce((nextValue) => setParamEndpoint(nextValue), 1000)
+    debounce((nextValue) => setParamEndpoint(nextValue), 500)
   ).current;
 
   const { bgTheme } = useContext(ThemeContext);
@@ -45,7 +44,9 @@ function Home({ coords }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.inner}>
-        <h3 className={styles.title}>Enter a place to check how crowded it is!</h3>
+        <h3 className={styles.title}>
+          Enter a place to check how crowded it is!
+        </h3>
         <Searchbox
           data={data?.predictions}
           value={value}

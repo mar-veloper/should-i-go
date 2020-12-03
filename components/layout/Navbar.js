@@ -12,16 +12,17 @@ export default function Navbar() {
 
   return (
     <div className={`${style.navbar}`}>
-      {router.pathname !== "/place/[placeId]" && lastSearched && (
-        <div className={`${style.lastSearch} ${themeClass}`}>
-          <ActiveLink href={lastSearched.url}>
-            <div className={style.icon}>
-              <p>{lastSearched.placeName}</p>
-            </div>
-          </ActiveLink>
-        </div>
-      )}
-
+      <>
+        {router.pathname !== "/place/[placeId]" && lastSearched && (
+          <div className={`${style.lastSearch} ${themeClass}`}>
+            <ActiveLink href={lastSearched.url}>
+              <div className={style.icon}>
+                <p>{lastSearched.placeName}</p>
+              </div>
+            </ActiveLink>
+          </div>
+        )}
+      </>
       <ul className={themeClass}>
         <li>
           <ActiveLink href="/">
