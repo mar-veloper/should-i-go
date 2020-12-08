@@ -1,30 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Should I Go App](https://www.should-i-go.to/)
+
+> [Should-I-Go is](https://www.should-i-go.to/) providing users with information on visitor density in popular places. Our main goal is to help people stay safe in times of pandemic like Covid-19. But this application can also be used in everyday life, like checking when the best time is to go to your destination, to avoid traffic or having too much people in a specific place.
+
+_Click this link to check mobile version of the MVP: https://www.should-i-go.to/
+
+
+## This project is being built using: 
+Frontend | Backend | PaaS
+------------ | ------------- | -------------
+[NextJS](https://nextjs.org/) | [NextJS API](https://nextjs.org/docs/api-routes/introduction) | [Render](https://render.com/)
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the project:
+```
+git clone https://github.com/mar-veloper/should-i-go.git
+```
 
-```bash
+2. Install the dependencies by running: 
+```
+cd should-i-go
+yarn
+# or 
+cd should-i-go
+npm i
+```
+
+3. You will need a *GOOGLE API* for this project. Put your *GOOGLE API* in your .env file like this:
+```
+GOOGLE_API_KEY=your-google-api-key
+````
+
+4. Run the development server:
+
+```
 npm run dev
 # or
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
